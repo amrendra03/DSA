@@ -1,13 +1,14 @@
-package Graph;
+package Graph.Adjacency_List;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
-public class test {
+public class DFS {
     public static void main(String[] args) {
-        System.out.println("graph test...");
+        System.out.println("DFS Adjacency List Graph...");
 
         List<List<Integer>> graph = new ArrayList<>();
-
         // 0
         graph.add(new ArrayList<>(List.of(1, 2, 4)));
         // 1
@@ -18,42 +19,15 @@ public class test {
         graph.add(new ArrayList<>(List.of(1)));
         // 4
         graph.add(new ArrayList<>(List.of(0, 2)));
-
         System.out.println(graph);
-
-        // BFS
-
-        Queue<Integer> queue = new LinkedList<>();
-        boolean visted[] = new boolean[graph.size()];
-
-        int n = graph.size();
-        queue.add(0);
-
-        while (!queue.isEmpty()) {
-            int x = queue.poll();
-            System.out.println(x);
-            visted[x] = true;
-            List<Integer> list = graph.get(x);
-            for (int i = 0; i < list.size(); i++) {
-                if (visted[list.get(i)] != true) {
-                    queue.add(list.get(i));
-                    visted[list.get(i)] = true;
-                }
-            }
-        }
 
         // DFS
         boolean v[] = new boolean[graph.size()];
         Stack<Integer> s = new Stack<>();
-
         dfs(graph,v,s,0);
-
         System.out.println(s);
-
     }
-
-    public static void dfs(List<List<Integer>> graph,boolean visted[],Stack<Integer> ans,int x){
-
+    public static void dfs(List<List<Integer>> graph, boolean visted[], Stack<Integer> ans, int x){
         visted[x]=true;
         ans.add(x);
         List<Integer> list = graph.get(x);
