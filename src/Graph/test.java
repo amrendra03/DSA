@@ -28,7 +28,7 @@ public class test {
 
         int n = graph.size();
         queue.add(0);
-        visted[0]=true;
+
         while (!queue.isEmpty()) {
             int x = queue.poll();
             System.out.println(x);
@@ -37,7 +37,7 @@ public class test {
             for (int i = 0; i < list.size(); i++) {
                 if (visted[list.get(i)] != true) {
                     queue.add(list.get(i));
-//                    visted[list.get(i)] = true;
+                    visted[list.get(i)] = true;
                 }
             }
         }
