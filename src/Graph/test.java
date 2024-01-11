@@ -5,7 +5,6 @@ import java.util.*;
 public class test {
     public static void main(String[] args) {
         System.out.println("graph test...");
-
         List<List<Integer>> graph = new ArrayList<>();
 
         // 0
@@ -20,7 +19,6 @@ public class test {
         graph.add(new ArrayList<>(List.of(0, 2)));
 
         System.out.println(graph);
-
         // BFS
 
         Queue<Integer> queue = new LinkedList<>();
@@ -41,15 +39,11 @@ public class test {
                 }
             }
         }
-
         // DFS
         boolean v[] = new boolean[graph.size()];
         Stack<Integer> s = new Stack<>();
-
         dfs(graph,v,s,0);
-
         System.out.println(s);
-
     }
 
     public static void dfs(List<List<Integer>> graph,boolean visted[],Stack<Integer> ans,int x){
